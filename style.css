@@ -285,7 +285,7 @@ section {
 
 /* Resized Profile Frame - Small Size */
 .profile-frame {
-    width: 100%;
+    width: 180%;
     max-width: 180px; /* Small Size Image Box */
     margin: 0 auto;
     padding: 8px;
@@ -295,7 +295,7 @@ section {
 }
 
 .profile-image {
-    width: 100%;
+    width: 180%;
     aspect-ratio: 3 / 3;
     object-fit: cover;
     border-radius: 2px;
