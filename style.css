@@ -1,26 +1,29 @@
-/* ============================================================
-   Design tokens
-   ============================================================ */
+
+/* ==================================================
+   1. DESIGN SETTINGS AND FONTS
+   ================================================== */
 
 :root {
     --pink: #d6006b;
-    --pink-light: #ff3d96;
-    --black: #000000;
-    --ink: #111111;
-    --dark: #151515;
-    --text: #4a4a4a;
-    --grey: #f4f4f4;
-    --line: #e4e4e4;
+    --pink-light: #ff4b9a;
+    --black: #050505;
+    --dark: #171717;
+    --ink: #151515;
+    --text: #505050;
+    --grey: #f5f5f5;
+    --white: #ffffff;
+    --line: #e5e5e5;
 
-    --font-head: "Poppins", Arial, Helvetica, sans-serif;
-    --font-body: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    --font-head: "Poppins", Arial, sans-serif;
+    --font-body: "Libre Baskerville", Georgia, serif;
+    --font-hero: "Playfair Display", Georgia, serif;
 
     --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* ============================================================
-   Base
-   ============================================================ */
+/* ==================================================
+   2. GENERAL STYLES
+   ================================================== */
 
 * {
     box-sizing: border-box;
@@ -30,41 +33,38 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.9;
     color: var(--text);
-    background: #ffffff;
+    background: var(--white);
     -webkit-font-smoothing: antialiased;
 }
 
-body.no-scroll {
-    overflow: hidden;
-}
-
 a {
-    color: var(--pink);
-    transition: color 0.3s var(--ease), background 0.3s var(--ease),
-                border-color 0.3s var(--ease), opacity 0.3s var(--ease);
+    transition: all 0.3s var(--ease);
 }
 
-a:focus-visible,
-button:focus-visible {
+a:focus-visible {
     outline: 3px solid var(--pink-light);
-    outline-offset: 3px;
+    outline-offset: 4px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--font-head);
+    line-height: 1.3;
     color: var(--ink);
-    line-height: 1.2;
 }
 
 section {
-    padding: 120px 0;
+    padding: 100px 0;
+    scroll-margin-top: 70px;
 }
 
 .container {
@@ -72,606 +72,223 @@ section {
     margin: 0 auto;
 }
 
-/* Section backgrounds */
-.bg-white { background: #ffffff; }
-.bg-grey  { background: var(--grey); }
-.bg-dark  { background: var(--dark); color: #c9c9c9; }
-.bg-black { background: var(--black); color: #c9c9c9; }
-.bg-pink  { background: var(--pink); color: #ffffff; }
+.bg-grey {
+    background: var(--grey);
+}
 
-.bg-dark h2, .bg-dark h3,
-.bg-black h2, .bg-black h3,
-.bg-pink h2 { color: #ffffff; }
+.bg-dark {
+    background: var(--dark);
+    color: #cccccc;
+}
 
-/* Section titles */
+.small-title {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--pink);
+    margin-bottom: 15px;
+}
+
+/* Section headings */
+
 .section-title {
+    position: relative;
     font-size: clamp(30px, 4vw, 42px);
     font-weight: 800;
-    letter-spacing: -0.5px;
     text-align: center;
-    margin-bottom: 70px;
-    position: relative;
-    padding-bottom: 24px;
+    margin-bottom: 65px;
+    padding-bottom: 22px;
 }
 
 .section-title::after {
     content: "";
     position: absolute;
-    left: 50%;
     bottom: 0;
-    width: 50px;
+    left: 50%;
+    width: 55px;
     height: 4px;
-    margin-left: -25px;
     background: var(--pink);
+    transform: translateX(-50%);
 }
 
-.bg-pink .section-title::after { background: #ffffff; }
+.light-title {
+    color: var(--white);
+}
 
 .section-intro {
+    max-width: 650px;
+    margin: -35px auto 50px;
     text-align: center;
-    max-width: 620px;
-    margin: -34px auto 60px;
 }
 
-.small-title {
-    font-family: var(--font-head);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--pink);
-    margin-bottom: 14px;
-}
+/* ==================================================
+   3. NAVIGATION
+   ================================================== */
 
-/* Resume-style layout: title left, content right */
-.split {
-    display: grid;
-    grid-template-columns: 300px minmax(0, 1fr);
-    gap: 70px;
-    align-items: start;
-}
-
-.section-title.side {
-    text-align: left;
-    margin-bottom: 0;
+.navbar {
     position: sticky;
-    top: 120px;
-}
-
-.section-title.side::after {
-    left: 0;
-    margin-left: 0;
-}
-
-/* ============================================================
-   Navigation: black box, pink hamburger, full-screen menu
-   ============================================================ */
-
-.site-header {
-    position: fixed;
     top: 0;
-    left: clamp(0px, 5.8vw, 54px);
-    z-index: 1200;
+    z-index: 1000;
+
     display: flex;
     align-items: center;
-    width: 287px;
-    height: 83px;
-    background: var(--black);
-}
+    justify-content: space-between;
+    gap: 25px;
 
-.menu-btn {
-    background: none;
-    border: 0;
-    cursor: pointer;
-    width: 90px;
-    height: 83px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.bars {
-    position: relative;
-    display: block;
-    width: 30px;
-    height: 24px;
-}
-
-.bars i {
-    position: absolute;
-    left: 0;
     width: 100%;
-    height: 4px;
-    background: var(--pink);
-    transition: transform 0.4s var(--ease), opacity 0.3s var(--ease), top 0.4s var(--ease);
+    padding: 20px 6%;
+
+    background: var(--black);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
 }
-
-.bars i:nth-child(1) { top: 0; }
-.bars i:nth-child(2) { top: 10px; }
-.bars i:nth-child(3) { top: 20px; }
-
-.menu-btn:hover .bars i { background: var(--pink-light); }
-
-.site-header.open .bars i:nth-child(1) { top: 10px; transform: rotate(45deg); }
-.site-header.open .bars i:nth-child(2) { opacity: 0; }
-.site-header.open .bars i:nth-child(3) { top: 10px; transform: rotate(-45deg); }
 
 .logo {
+    flex-shrink: 0;
     font-family: var(--font-head);
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    color: #e8e8e8;
-    text-decoration: none;
-    margin-left: 22px;
-}
-
-.logo:hover { color: var(--pink-light); }
-
-.menu-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(5, 5, 5, 0.97);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s var(--ease), visibility 0.5s;
-}
-
-.menu-overlay.open {
-    opacity: 1;
-    visibility: visible;
-}
-
-.menu-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-}
-
-.menu-links a {
-    font-family: var(--font-head);
-    font-size: clamp(26px, 5vw, 44px);
+    font-size: 17px;
     font-weight: 700;
-    color: #ffffff;
+    letter-spacing: 1px;
+    color: var(--white);
     text-decoration: none;
-    padding: 4px 12px;
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), color 0.3s var(--ease);
 }
 
-.menu-overlay.open .menu-links a {
-    opacity: 1;
-    transform: translateY(0);
+.logo:hover {
+    color: var(--pink-light);
 }
 
-.menu-overlay.open .menu-links a:nth-child(1) { transition-delay: 0.10s, 0.10s, 0s; }
-.menu-overlay.open .menu-links a:nth-child(2) { transition-delay: 0.15s, 0.15s, 0s; }
-.menu-overlay.open .menu-links a:nth-child(3) { transition-delay: 0.20s, 0.20s, 0s; }
-.menu-overlay.open .menu-links a:nth-child(4) { transition-delay: 0.25s, 0.25s, 0s; }
-.menu-overlay.open .menu-links a:nth-child(5) { transition-delay: 0.30s, 0.30s, 0s; }
-.menu-overlay.open .menu-links a:nth-child(6) { transition-delay: 0.35s, 0.35s, 0s; }
-.menu-overlay.open .menu-links a:nth-child(7) { transition-delay: 0.40s, 0.40s, 0s; }
-
-.menu-links a:hover,
-.menu-links a.active {
-    color: var(--pink);
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px 22px;
 }
 
-/* ============================================================
-   Hero: dark starry sky
-   ============================================================ */
+.nav-links a {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 600;
+    color: #eeeeee;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: var(--pink-light);
+}
+
+/* ==================================================
+   4. HERO SECTION
+   Special font + dark starry background
+   ================================================== */
 
 .hero {
     position: relative;
-    min-height: 100vh;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 92vh;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding: 120px 7%;
     text-align: center;
-    padding: 150px 6% 110px;
-    overflow: hidden;
+
     background:
-        radial-gradient(ellipse at 55% 75%, rgba(255, 255, 255, 0.07), transparent 55%),
-        radial-gradient(ellipse at 30% 20%, rgba(214, 0, 107, 0.07), transparent 50%),
-        linear-gradient(180deg, #0b0b0b 0%, #1b1b1b 100%);
+        radial-gradient(
+            ellipse at 50% 60%,
+            rgba(214, 0, 107, 0.12),
+            transparent 55%
+        ),
+        linear-gradient(145deg, #080808, #1c1c1c 55%, #090909);
 }
 
-/* Star layers */
+/* Decorative stars */
+
 .hero::before,
 .hero::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
+    inset: 0;
+    z-index: -1;
     pointer-events: none;
 }
 
 .hero::before {
-    width: 1px;
-    height: 1px;
-    box-shadow:
-        1326px 308px rgba(255,255,255,.35),
-        197px 148px rgba(255,255,255,.7),
-        385px 748px rgba(255,255,255,.7),
-        237px 1039px rgba(255,255,255,.55),
-        153px 176px rgba(255,255,255,.35),
-        1712px 143px rgba(255,255,255,.55),
-        371px 1128px rgba(255,255,255,.35),
-        242px 1158px rgba(255,255,255,.55),
-        914px 1291px rgba(255,255,255,.7),
-        2387px 126px rgba(255,255,255,.7),
-        2398px 812px rgba(255,255,255,.55),
-        905px 95px rgba(255,255,255,.7),
-        545px 593px rgba(255,255,255,.35),
-        590px 1107px rgba(255,255,255,.55),
-        2338px 631px rgba(255,255,255,.7),
-        740px 211px rgba(255,255,255,.7),
-        2339px 1308px rgba(255,255,255,.55),
-        1525px 199px rgba(255,255,255,.7),
-        257px 1155px rgba(255,255,255,.55),
-        2535px 421px rgba(255,255,255,.35),
-        2177px 875px rgba(255,255,255,.35),
-        1907px 1199px rgba(255,255,255,.35),
-        1481px 613px rgba(255,255,255,.55),
-        736px 1431px rgba(255,255,255,.55),
-        335px 1176px rgba(255,255,255,.35),
-        2151px 1013px rgba(255,255,255,.35),
-        1838px 589px rgba(255,255,255,.7),
-        299px 241px rgba(255,255,255,.7),
-        1712px 337px rgba(255,255,255,.35),
-        622px 1001px rgba(255,255,255,.35),
-        160px 1368px rgba(255,255,255,.55),
-        2285px 1173px rgba(255,255,255,.35),
-        1393px 1423px rgba(255,255,255,.35),
-        2434px 1017px rgba(255,255,255,.7),
-        1868px 140px rgba(255,255,255,.55),
-        1105px 970px rgba(255,255,255,.7),
-        266px 124px rgba(255,255,255,.7),
-        1268px 1325px rgba(255,255,255,.7),
-        1825px 582px rgba(255,255,255,.7),
-        1580px 1369px rgba(255,255,255,.35),
-        92px 945px rgba(255,255,255,.35),
-        688px 1251px rgba(255,255,255,.55),
-        2022px 120px rgba(255,255,255,.55),
-        1177px 264px rgba(255,255,255,.7),
-        1014px 814px rgba(255,255,255,.35),
-        2033px 165px rgba(255,255,255,.55),
-        1839px 822px rgba(255,255,255,.7),
-        1138px 280px rgba(255,255,255,.35),
-        2253px 570px rgba(255,255,255,.7),
-        1701px 734px rgba(255,255,255,.7),
-        1558px 472px rgba(255,255,255,.55),
-        339px 360px rgba(255,255,255,.55),
-        950px 1348px rgba(255,255,255,.55),
-        49px 993px rgba(255,255,255,.7),
-        746px 538px rgba(255,255,255,.35),
-        16px 298px rgba(255,255,255,.35),
-        2189px 756px rgba(255,255,255,.7),
-        2319px 652px rgba(255,255,255,.55),
-        2111px 1264px rgba(255,255,255,.7),
-        221px 935px rgba(255,255,255,.7),
-        2290px 803px rgba(255,255,255,.35),
-        1634px 807px rgba(255,255,255,.55),
-        1972px 1299px rgba(255,255,255,.35),
-        254px 390px rgba(255,255,255,.55),
-        855px 902px rgba(255,255,255,.55),
-        450px 696px rgba(255,255,255,.7),
-        215px 209px rgba(255,255,255,.55),
-        2321px 309px rgba(255,255,255,.7),
-        415px 744px rgba(255,255,255,.7),
-        104px 144px rgba(255,255,255,.55),
-        2515px 770px rgba(255,255,255,.55),
-        1033px 711px rgba(255,255,255,.7),
-        1491px 971px rgba(255,255,255,.55),
-        472px 999px rgba(255,255,255,.35),
-        1967px 990px rgba(255,255,255,.35),
-        351px 295px rgba(255,255,255,.55),
-        1403px 542px rgba(255,255,255,.35),
-        661px 1057px rgba(255,255,255,.55),
-        840px 1081px rgba(255,255,255,.35),
-        600px 1413px rgba(255,255,255,.7),
-        110px 1081px rgba(255,255,255,.35),
-        372px 1425px rgba(255,255,255,.35),
-        2123px 751px rgba(255,255,255,.55),
-        1456px 456px rgba(255,255,255,.7),
-        2218px 1029px rgba(255,255,255,.35),
-        913px 1255px rgba(255,255,255,.55),
-        980px 820px rgba(255,255,255,.7),
-        928px 409px rgba(255,255,255,.7),
-        2018px 728px rgba(255,255,255,.7),
-        118px 57px rgba(255,255,255,.35),
-        1934px 530px rgba(255,255,255,.55),
-        2478px 705px rgba(255,255,255,.35),
-        1431px 746px rgba(255,255,255,.55),
-        903px 209px rgba(255,255,255,.55),
-        1925px 402px rgba(255,255,255,.35),
-        837px 988px rgba(255,255,255,.7),
-        2499px 3px rgba(255,255,255,.35),
-        1409px 1317px rgba(255,255,255,.55),
-        491px 795px rgba(255,255,255,.7),
-        816px 979px rgba(255,255,255,.55),
-        1777px 1302px rgba(255,255,255,.35),
-        355px 1478px rgba(255,255,255,.35),
-        1897px 822px rgba(255,255,255,.7),
-        347px 1484px rgba(255,255,255,.55),
-        696px 260px rgba(255,255,255,.55),
-        619px 1209px rgba(255,255,255,.35),
-        598px 1252px rgba(255,255,255,.7),
-        1942px 1346px rgba(255,255,255,.35),
-        638px 1123px rgba(255,255,255,.7),
-        536px 43px rgba(255,255,255,.55),
-        420px 1078px rgba(255,255,255,.7),
-        570px 888px rgba(255,255,255,.55),
-        864px 57px rgba(255,255,255,.35),
-        871px 599px rgba(255,255,255,.7),
-        985px 1201px rgba(255,255,255,.35),
-        1062px 1114px rgba(255,255,255,.35),
-        536px 124px rgba(255,255,255,.7),
-        1449px 938px rgba(255,255,255,.7),
-        2389px 1058px rgba(255,255,255,.35),
-        2054px 267px rgba(255,255,255,.7),
-        621px 1072px rgba(255,255,255,.7),
-        76px 901px rgba(255,255,255,.55),
-        2492px 8px rgba(255,255,255,.55),
-        705px 289px rgba(255,255,255,.35),
-        2535px 1485px rgba(255,255,255,.55),
-        2279px 126px rgba(255,255,255,.35),
-        2123px 1086px rgba(255,255,255,.7),
-        1976px 217px rgba(255,255,255,.7),
-        232px 508px rgba(255,255,255,.55),
-        1134px 86px rgba(255,255,255,.55),
-        2079px 926px rgba(255,255,255,.7),
-        114px 129px rgba(255,255,255,.35),
-        1333px 1254px rgba(255,255,255,.7),
-        2482px 1048px rgba(255,255,255,.55),
-        1135px 926px rgba(255,255,255,.7),
-        2184px 979px rgba(255,255,255,.7),
-        1014px 1431px rgba(255,255,255,.7),
-        1063px 1145px rgba(255,255,255,.55),
-        1833px 280px rgba(255,255,255,.35),
-        498px 803px rgba(255,255,255,.35),
-        1294px 148px rgba(255,255,255,.7),
-        985px 877px rgba(255,255,255,.55),
-        871px 1371px rgba(255,255,255,.35),
-        501px 316px rgba(255,255,255,.7),
-        1499px 292px rgba(255,255,255,.35),
-        562px 957px rgba(255,255,255,.55),
-        385px 815px rgba(255,255,255,.35),
-        666px 1367px rgba(255,255,255,.55),
-        661px 1446px rgba(255,255,255,.35),
-        2111px 827px rgba(255,255,255,.35),
-        1725px 400px rgba(255,255,255,.35),
-        1304px 188px rgba(255,255,255,.7),
-        1498px 39px rgba(255,255,255,.35),
-        2269px 939px rgba(255,255,255,.35),
-        74px 787px rgba(255,255,255,.35),
-        2119px 1277px rgba(255,255,255,.35),
-        2098px 131px rgba(255,255,255,.55),
-        936px 214px rgba(255,255,255,.55),
-        1087px 556px rgba(255,255,255,.55),
-        743px 553px rgba(255,255,255,.55),
-        1729px 1384px rgba(255,255,255,.35),
-        1662px 305px rgba(255,255,255,.7),
-        2108px 1168px rgba(255,255,255,.35),
-        1339px 183px rgba(255,255,255,.35),
-        235px 1409px rgba(255,255,255,.55),
-        1742px 148px rgba(255,255,255,.35),
-        68px 1299px rgba(255,255,255,.55),
-        1067px 171px rgba(255,255,255,.7),
-        910px 136px rgba(255,255,255,.35),
-        498px 929px rgba(255,255,255,.55),
-        1389px 1132px rgba(255,255,255,.35),
-        1097px 1273px rgba(255,255,255,.55),
-        176px 1079px rgba(255,255,255,.7),
-        976px 224px rgba(255,255,255,.55),
-        1072px 103px rgba(255,255,255,.55),
-        826px 638px rgba(255,255,255,.7),
-        1249px 1087px rgba(255,255,255,.55),
-        1187px 912px rgba(255,255,255,.7),
-        728px 554px rgba(255,255,255,.35),
-        74px 512px rgba(255,255,255,.55),
-        62px 37px rgba(255,255,255,.7),
-        2071px 1128px rgba(255,255,255,.55),
-        2106px 972px rgba(255,255,255,.55),
-        1831px 217px rgba(255,255,255,.7),
-        1770px 1344px rgba(255,255,255,.35),
-        2236px 805px rgba(255,255,255,.7),
-        1260px 1408px rgba(255,255,255,.55),
-        940px 701px rgba(255,255,255,.55),
-        572px 828px rgba(255,255,255,.35),
-        222px 265px rgba(255,255,255,.55),
-        289px 1280px rgba(255,255,255,.7),
-        1046px 882px rgba(255,255,255,.55),
-        226px 173px rgba(255,255,255,.7),
-        1560px 1036px rgba(255,255,255,.7),
-        1154px 1226px rgba(255,255,255,.55),
-        1200px 92px rgba(255,255,255,.35),
-        759px 322px rgba(255,255,255,.35),
-        1826px 7px rgba(255,255,255,.35),
-        1491px 673px rgba(255,255,255,.7),
-        1325px 500px rgba(255,255,255,.55),
-        1267px 446px rgba(255,255,255,.35),
-        749px 2px rgba(255,255,255,.35),
-        1563px 171px rgba(255,255,255,.35),
-        1142px 1029px rgba(255,255,255,.7),
-        823px 508px rgba(255,255,255,.7),
-        20px 186px rgba(255,255,255,.35),
-        367px 294px rgba(255,255,255,.35),
-        2403px 85px rgba(255,255,255,.35),
-        92px 613px rgba(255,255,255,.35),
-        953px 173px rgba(255,255,255,.7),
-        2167px 317px rgba(255,255,255,.7),
-        2443px 797px rgba(255,255,255,.35),
-        2024px 306px rgba(255,255,255,.35),
-        2534px 1317px rgba(255,255,255,.55),
-        179px 1464px rgba(255,255,255,.7),
-        1758px 1435px rgba(255,255,255,.7),
-        570px 1072px rgba(255,255,255,.7),
-        2328px 32px rgba(255,255,255,.7),
-        2392px 1456px rgba(255,255,255,.7),
-        941px 174px rgba(255,255,255,.55),
-        171px 272px rgba(255,255,255,.7),
-        1477px 214px rgba(255,255,255,.35),
-        1848px 1143px rgba(255,255,255,.55),
-        77px 1282px rgba(255,255,255,.7),
-        1001px 1002px rgba(255,255,255,.35),
-        13px 935px rgba(255,255,255,.55),
-        2060px 1096px rgba(255,255,255,.55),
-        2154px 135px rgba(255,255,255,.7),
-        1940px 516px rgba(255,255,255,.55),
-        1087px 480px rgba(255,255,255,.7),
-        840px 472px rgba(255,255,255,.7),
-        1885px 1011px rgba(255,255,255,.35),
-        314px 981px rgba(255,255,255,.7),
-        1176px 95px rgba(255,255,255,.7),
-        812px 158px rgba(255,255,255,.7),
-        603px 679px rgba(255,255,255,.35),
-        1246px 1272px rgba(255,255,255,.7),
-        546px 25px rgba(255,255,255,.35),
-        248px 994px rgba(255,255,255,.35),
-        407px 1417px rgba(255,255,255,.55),
-        2005px 595px rgba(255,255,255,.7),
-        2115px 584px rgba(255,255,255,.35),
-        1908px 955px rgba(255,255,255,.55),
-        2249px 408px rgba(255,255,255,.35),
-        351px 968px rgba(255,255,255,.55),
-        1186px 939px rgba(255,255,255,.55),
-        2075px 920px rgba(255,255,255,.35),
-        1584px 429px rgba(255,255,255,.55),
-        305px 1190px rgba(255,255,255,.55),
-        580px 1073px rgba(255,255,255,.35),
-        1472px 271px rgba(255,255,255,.7),
-        2083px 572px rgba(255,255,255,.55),
-        1495px 473px rgba(255,255,255,.35),
-        1991px 807px rgba(255,255,255,.55),
-        651px 7px rgba(255,255,255,.35),
-        1846px 830px rgba(255,255,255,.35),
-        576px 852px rgba(255,255,255,.35),
-        1540px 647px rgba(255,255,255,.55),
-        1357px 3px rgba(255,255,255,.35),
-        1385px 815px rgba(255,255,255,.55);
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, #ffffff 70%, transparent),
+        radial-gradient(1px 1px at 20% 75%, #ffffff 70%, transparent),
+        radial-gradient(2px 2px at 32% 35%, #ffb5d6 70%, transparent),
+        radial-gradient(1px 1px at 42% 82%, #ffffff 70%, transparent),
+        radial-gradient(2px 2px at 55% 18%, #ffffff 70%, transparent),
+        radial-gradient(1px 1px at 67% 65%, #ffb5d6 70%, transparent),
+        radial-gradient(2px 2px at 77% 30%, #ffffff 70%, transparent),
+        radial-gradient(1px 1px at 89% 78%, #ffffff 70%, transparent),
+        radial-gradient(1px 1px at 95% 12%, #ffb5d6 70%, transparent),
+        radial-gradient(2px 2px at 5% 58%, #ffffff 70%, transparent);
+    background-size: 400px 350px;
+    opacity: 0.75;
 }
 
 .hero::after {
-    width: 2px;
-    height: 2px;
-    box-shadow:
-        801px 1460px rgba(255,255,255,.9),
-        1187px 518px rgba(255,200,225,.85),
-        266px 804px rgba(255,200,225,.85),
-        2413px 156px rgba(255,200,225,.85),
-        1753px 563px rgba(255,255,255,.9),
-        1149px 208px rgba(255,255,255,.9),
-        1169px 1300px rgba(255,255,255,.9),
-        1021px 544px rgba(255,200,225,.85),
-        2092px 646px rgba(255,255,255,.9),
-        1529px 876px rgba(255,255,255,.9),
-        1638px 1134px rgba(255,255,255,.9),
-        330px 101px rgba(255,200,225,.85),
-        1846px 1259px rgba(255,255,255,.9),
-        1172px 994px rgba(255,255,255,.9),
-        2253px 260px rgba(255,255,255,.9),
-        1934px 849px rgba(255,200,225,.85),
-        1154px 609px rgba(255,200,225,.85),
-        1065px 831px rgba(255,255,255,.9),
-        1232px 989px rgba(255,200,225,.85),
-        490px 342px rgba(255,255,255,.9),
-        307px 425px rgba(255,200,225,.85),
-        2254px 450px rgba(255,200,225,.85),
-        1363px 921px rgba(255,200,225,.85),
-        571px 1121px rgba(255,255,255,.9),
-        999px 185px rgba(255,255,255,.9),
-        1400px 1138px rgba(255,255,255,.9),
-        1307px 489px rgba(255,200,225,.85),
-        1058px 1166px rgba(255,255,255,.9),
-        82px 845px rgba(255,200,225,.85),
-        1695px 1073px rgba(255,255,255,.9),
-        1543px 553px rgba(255,200,225,.85),
-        254px 1020px rgba(255,200,225,.85),
-        2352px 737px rgba(255,255,255,.9),
-        2061px 1083px rgba(255,255,255,.9),
-        379px 555px rgba(255,255,255,.9),
-        1575px 818px rgba(255,200,225,.85),
-        1768px 639px rgba(255,255,255,.9),
-        521px 66px rgba(255,200,225,.85),
-        1938px 1202px rgba(255,200,225,.85),
-        0px 149px rgba(255,200,225,.85),
-        2162px 958px rgba(255,200,225,.85),
-        1017px 223px rgba(255,255,255,.9),
-        632px 311px rgba(255,255,255,.9),
-        1873px 174px rgba(255,255,255,.9),
-        5px 257px rgba(255,255,255,.9),
-        2332px 76px rgba(255,200,225,.85),
-        524px 1283px rgba(255,200,225,.85),
-        2163px 1303px rgba(255,200,225,.85),
-        459px 203px rgba(255,255,255,.9),
-        1230px 1074px rgba(255,255,255,.9),
-        1589px 534px rgba(255,255,255,.9),
-        2461px 2px rgba(255,255,255,.9),
-        2201px 617px rgba(255,200,225,.85),
-        1141px 647px rgba(255,255,255,.9),
-        1946px 1077px rgba(255,255,255,.9),
-        2240px 505px rgba(255,255,255,.9),
-        1686px 1443px rgba(255,200,225,.85),
-        226px 44px rgba(255,255,255,.9),
-        2041px 1381px rgba(255,200,225,.85),
-        332px 526px rgba(255,255,255,.9);
-    animation: twinkle 5s ease-in-out infinite alternate;
-}
-
-@keyframes twinkle {
-    from { opacity: 0.35; }
-    to   { opacity: 1; }
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 25%,
+            rgba(0, 0, 0, 0.35) 100%
+        );
 }
 
 .hero-text {
-    position: relative;
-    z-index: 1;
+    width: 100%;
     max-width: 920px;
-    animation: rise 1s var(--ease) both;
+    animation: hero-appear 1s var(--ease) both;
 }
 
-@keyframes rise {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+@keyframes hero-appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero .small-title {
-    font-size: clamp(15px, 2vw, 20px);
+    font-size: clamp(12px, 1.5vw, 16px);
     letter-spacing: 4px;
-    margin-bottom: 8px;
+    margin-bottom: 22px;
 }
 
 .hero h1 {
-    color: #ffffff;
-    font-size: clamp(42px, 8.5vw, 96px);
-    font-weight: 800;
-    letter-spacing: -2px;
-    line-height: 1.12;
-    margin-bottom: 26px;
+    font-family: var(--font-hero);
+    font-size: clamp(42px, 7vw, 82px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    color: var(--white);
+    margin-bottom: 25px;
 }
 
 .hero h1 span {
-    display: inline;
+    color: var(--pink-light);
 }
 
 .hero h2 {
     display: inline-block;
     position: relative;
-    font-family: var(--font-body);
-    font-size: clamp(13px, 1.7vw, 18px);
-    font-weight: 400;
+    font-family: var(--font-head);
+    font-size: clamp(12px, 1.7vw, 17px);
+    font-weight: 500;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #ffffff;
-    padding: 0 26px;
-    margin-bottom: 26px;
+    color: var(--white);
+    padding: 0 22px;
+    margin-bottom: 25px;
 }
 
 .hero h2::before,
@@ -681,126 +298,179 @@ section {
     top: 50%;
     width: 1px;
     height: 20px;
-    margin-top: -10px;
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%);
 }
 
-.hero h2::before { left: 0; }
-.hero h2::after  { right: 0; }
+.hero h2::before {
+    left: 0;
+}
 
-.hero p:not(.small-title) {
-    color: #bdbdbd;
-    font-size: 15px;
-    max-width: 640px;
+.hero h2::after {
+    right: 0;
+}
+
+.hero-description {
+    max-width: 650px;
     margin: 0 auto;
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 2.1;
 }
 
-/* ============================================================
-   Buttons
-   ============================================================ */
+/* Scroll indicator */
+
+.scroll-down {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    width: 26px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    transform: translateX(-50%);
+}
+
+.scroll-down span {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 4px;
+    height: 8px;
+    border-radius: 5px;
+    background: var(--pink-light);
+    transform: translateX(-50%);
+    animation: scroll-move 1.5s infinite;
+}
+
+@keyframes scroll-move {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 12px);
+    }
+}
+
+/* ==================================================
+   5. BUTTONS
+   ================================================== */
 
 .buttons {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
-    margin-top: 44px;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 38px;
 }
 
-.btn {
-    position: relative;
+.button {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+
+    padding: 15px 28px;
+    border: 2px solid transparent;
+
     font-family: var(--font-head);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
     text-decoration: none;
-    padding: 22px 40px;
-    border: 3px solid transparent;
+    text-transform: uppercase;
+
     cursor: pointer;
-    transition: background 0.35s var(--ease), color 0.35s var(--ease),
-                border-color 0.35s var(--ease), transform 0.35s var(--ease);
+    transition: all 0.3s var(--ease);
 }
 
-.btn:hover {
+.button:hover {
     transform: translateY(-3px);
 }
 
-.btn-outline {
-    color: #ffffff;
+.button-outline {
+    color: var(--white);
     background: transparent;
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.55);
 }
 
-.btn-outline:hover {
-    background: #ffffff;
-    border-color: #ffffff;
-    color: var(--ink);
+.button-outline:hover {
+    color: var(--black);
+    background: var(--white);
+    border-color: var(--white);
 }
 
-.btn-down::after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(45deg) translate(-2px, -2px);
-    transition: transform 0.35s var(--ease);
-}
-
-.btn-down:hover::after {
-    transform: rotate(45deg) translate(1px, 1px);
-}
-
-.btn-pink {
+.button-pink {
+    color: var(--white);
     background: var(--pink);
     border-color: var(--pink);
-    color: #ffffff;
 }
 
-.btn-pink:hover {
-    background: transparent;
-    color: #ffffff;
-    border-color: var(--pink);
-}
-
-.btn-light {
-    background: transparent;
-    border-color: #ffffff;
-    color: #ffffff;
-}
-
-.btn-light:hover {
-    background: #ffffff;
-    border-color: #ffffff;
+.button-pink:hover {
     color: var(--pink);
+    background: transparent;
 }
 
-/* ============================================================
-   About
-   ============================================================ */
+.button-light {
+    color: var(--white);
+    background: transparent;
+    border-color: var(--white);
+}
+
+.button-light:hover {
+    color: var(--pink);
+    background: var(--white);
+}
+
+/* ==================================================
+   6. ABOUT ME
+   Different background, heading and typography
+   ================================================== */
+
+.about-section {
+    background: #f7f7f7;
+}
+
+.about-title {
+    font-family: var(--font-hero);
+    text-align: left;
+    margin-bottom: 65px;
+}
+
+.about-title::after {
+    left: 0;
+    transform: none;
+    width: 70px;
+}
 
 .about-content {
     display: grid;
-    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
-    gap: 80px;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
     align-items: center;
+    gap: 75px;
 }
 
 .about-image {
     position: relative;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
 }
 
 .about-image::before {
     content: "";
     position: absolute;
-    top: -16px;
-    left: -16px;
-    right: 16px;
-    bottom: 16px;
+    top: -15px;
+    left: -15px;
+    right: 15px;
+    bottom: 15px;
     border: 4px solid var(--pink);
 }
 
@@ -809,445 +479,614 @@ section {
     display: block;
     width: 100%;
     height: auto;
+    background: #eeeeee;
     filter: grayscale(1);
-    transition: filter 0.6s var(--ease);
+    transition: filter 0.5s var(--ease);
 }
 
 .about-image:hover img {
     filter: grayscale(0);
 }
 
-.about-text h3 {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 22px;
+.about-text .small-title {
+    margin-bottom: 12px;
 }
 
-.about-text p {
+.about-text h3 {
+    font-family: var(--font-hero);
+    font-size: clamp(25px, 3vw, 33px);
+    color: var(--pink);
+    margin-bottom: 25px;
+}
+
+.about-text > p:not(.small-title) {
+    font-family: var(--font-head);
+    font-size: 13px;
+    line-height: 2.1;
+    color: #454545;
     margin-bottom: 18px;
 }
 
+/* Personal details box */
+
 .about-details {
-    margin-top: 34px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line);
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px 30px;
+    gap: 0 25px;
+
+    margin-top: 30px;
+    padding: 24px;
+
+    background: var(--white);
+    border-left: 4px solid var(--pink);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
 
 .about-details p {
-    margin: 0;
-    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: anywhere;
+    padding: 10px 0;
+    font-family: var(--font-head);
+    font-size: 12px;
 }
 
 .about-details strong {
-    font-family: var(--font-head);
-    font-size: 12px;
+    color: var(--pink);
+    font-size: 10px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--ink);
+    margin-bottom: 4px;
 }
 
+.about-details span,
 .about-details a {
-    word-break: break-word;
+    color: var(--ink);
     text-decoration: none;
-    border-bottom: 1px solid var(--pink);
 }
 
 .about-details a:hover {
-    color: var(--ink);
+    color: var(--pink);
 }
 
-/* ============================================================
-   Education
-   ============================================================ */
+/* ==================================================
+   7. EDUCATION
+   ================================================== */
 
-.entries {
+.education-container {
     display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
 }
 
 .education-card {
-    padding: 0 0 44px;
-    margin-bottom: 44px;
-    border-bottom: 1px solid var(--line);
+    padding: 32px 28px;
+    background: #ffffff;
+    border-top: 4px solid var(--pink);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s var(--ease),
+                box-shadow 0.3s var(--ease);
 }
 
-.education-card:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: 0;
+.education-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.09);
+}
+
+.card-label {
+    display: inline-block;
+    font-family: var(--font-head);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--pink);
+    margin-bottom: 18px;
 }
 
 .education-card h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 6px;
+    font-size: 19px;
+    margin-bottom: 14px;
 }
 
-.institution {
-    font-style: italic;
+.education-card p {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.education-card .institution {
+    font-family: var(--font-head);
+    font-weight: 600;
     color: var(--ink);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-/* ============================================================
-   Skills
-   ============================================================ */
+/* ==================================================
+   8. SKILLS
+   ================================================== */
 
 .skills-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px;
+    gap: 30px;
 }
 
 .skill-box {
-    padding: 44px 40px;
-    background: var(--grey);
+    padding: 38px;
+    background: var(--white);
     border-top: 4px solid var(--pink);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
 }
 
 .skill-box h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 26px;
+    font-size: 21px;
+    margin-bottom: 25px;
 }
 
 .skill-box ul {
-    list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    list-style: none;
 }
 
 .skill-box li {
-    font-family: var(--font-head);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink);
-    background: #ffffff;
+    padding: 9px 13px;
+    background: #f5f5f5;
     border: 1px solid var(--line);
-    padding: 8px 18px;
-    line-height: 1.5;
-    transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+    font-family: var(--font-head);
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--ink);
+    transition: all 0.3s var(--ease);
 }
 
 .skill-box li:hover {
+    color: var(--white);
     background: var(--pink);
     border-color: var(--pink);
-    color: #ffffff;
 }
 
-/* ============================================================
-   Projects
-   ============================================================ */
+/* ==================================================
+   9. ACADEMIC PROJECTS
+   ================================================== */
 
 .projects-container {
     display: grid;
-    gap: 28px;
+    gap: 25px;
 }
 
 .project-card {
-    padding: 38px 40px;
-    background: #ffffff;
+    padding: 35px 38px;
+    background: var(--white);
     border-left: 4px solid var(--pink);
-    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.035);
+    transition: transform 0.35s var(--ease),
+                box-shadow 0.35s var(--ease);
 }
 
 .project-card:hover {
-    transform: translateX(8px);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+    transform: translateX(7px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 .project-number {
     font-family: var(--font-head);
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     color: var(--pink);
     margin-bottom: 12px;
 }
 
 .project-card h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 14px;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.project-card > p:not(.project-number):not(.project-skills) {
+    font-size: 13px;
 }
 
 .project-skills {
-    margin-top: 18px;
+    margin-top: 17px;
     font-family: var(--font-head);
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
-    color: var(--ink);
+    color: var(--pink);
 }
 
-/* ============================================================
-   Activities
-   ============================================================ */
+/* ==================================================
+   10. LEADERSHIP AND ACTIVITIES
+   ================================================== */
 
 .activities-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 30px;
+    gap: 25px;
 }
 
 .activity {
-    padding: 40px 34px;
-    background: #1f1f1f;
+    padding: 32px 27px;
+    background: #222222;
     border-top: 4px solid var(--pink);
-    transition: background 0.4s var(--ease), transform 0.4s var(--ease);
+    transition: transform 0.3s var(--ease),
+                background 0.3s var(--ease);
 }
 
 .activity:hover {
-    background: #262626;
     transform: translateY(-6px);
+    background: #292929;
 }
 
 .activity h3 {
-    font-size: 21px;
-    font-weight: 700;
-    margin-bottom: 22px;
+    font-size: 19px;
+    color: var(--white);
+    margin-bottom: 20px;
 }
 
 .activity p {
+    font-size: 12px;
+    color: #d0d0d0;
     margin-bottom: 12px;
+    overflow-wrap: anywhere;
 }
 
 .activity p:last-child {
     margin-bottom: 0;
 }
 
-/* ============================================================
-   Values
-   ============================================================ */
+/* ==================================================
+   11. WHAT I VALUE
+   Six separate boxes
+   ================================================== */
+
+.values-section {
+    background: #f5f5f5;
+}
+
+.values-section .section-title {
+    font-family: var(--font-hero);
+}
+
+.values-section .section-intro {
+    margin-top: -35px;
+    margin-bottom: 45px;
+}
 
 .hobbies-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
 }
 
 .hobby {
-    font-family: var(--font-head);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink);
-    padding: 16px 32px;
-    border: 3px solid var(--line);
-    transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+    min-height: 145px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 25px 28px;
+    background: var(--white);
+    border: 1px solid #e7e7e7;
+    border-bottom: 4px solid var(--pink);
+
+    box-shadow: 0 7px 22px rgba(0, 0, 0, 0.035);
+
+    transition: transform 0.3s var(--ease),
+                background 0.3s var(--ease),
+                box-shadow 0.3s var(--ease);
 }
 
 .hobby:hover {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: #ffffff;
+    transform: translateY(-6px);
+    background: var(--dark);
+    box-shadow: 0 12px 28px rgba(214, 0, 107, 0.12);
 }
 
-/* ============================================================
-   CV
-   ============================================================ */
+.value-number {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--pink);
+    margin-bottom: 12px;
+}
 
-#cv {
+.hobby h3 {
+    font-family: var(--font-head);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    transition: color 0.3s var(--ease);
+}
+
+.hobby:hover h3 {
+    color: var(--white);
+}
+
+/* ==================================================
+   12. CV SECTION
+   ================================================== */
+
+.cv-section {
     text-align: center;
-    padding: 100px 0;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 75, 154, 0.16),
+            transparent 60%
+        ),
+        var(--dark);
+    color: #d0d0d0;
 }
 
-#cv p {
-    max-width: 560px;
-    margin: -34px auto 40px;
-    color: #ffffff;
+.cv-section .container {
+    max-width: 750px;
 }
 
-/* ============================================================
-   Contact
-   ============================================================ */
+.cv-section h2 {
+    font-family: var(--font-hero);
+    font-size: clamp(32px, 4vw, 45px);
+    color: var(--white);
+    margin-bottom: 22px;
+}
 
-#contact {
+.cv-section > .container > p:not(.small-title) {
+    font-size: 13px;
+    margin-bottom: 32px;
+}
+
+/* ==================================================
+   13. CONTACT
+   ================================================== */
+
+.contact-section {
     text-align: center;
+    background: #ffffff;
+}
+
+.contact-section .section-title {
+    margin-bottom: 35px;
+}
+
+.contact-description {
+    max-width: 650px;
+    margin: 0 auto 35px;
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 34px;
+    gap: 25px;
 }
 
 .contact-info p {
     font-family: var(--font-head);
-    font-size: clamp(16px, 2.4vw, 24px);
-    font-weight: 600;
-    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
 }
 
 .contact-info p a {
-    color: var(--pink-light);
+    color: var(--pink);
     text-decoration: none;
-    border-bottom: 2px solid transparent;
+    overflow-wrap: anywhere;
 }
 
 .contact-info p a:hover {
-    border-bottom-color: var(--pink-light);
+    color: var(--ink);
 }
 
-/* ============================================================
-   Footer & back-to-top
-   ============================================================ */
+/* ==================================================
+   14. FOOTER
+   ================================================== */
 
 footer {
-    background: #050505;
-    color: #8a8a8a;
+    padding: 35px 16px;
+    background: var(--black);
+    color: #aaaaaa;
+    border-top: 1px solid #242424;
     text-align: center;
-    padding: 46px 16px;
-    font-size: 13px;
-    border-top: 1px solid #1c1c1c;
+    font-family: var(--font-head);
+    font-size: 11px;
 }
 
 footer p {
     margin: 5px 0;
 }
 
+/* Back-to-top button */
+
 .back-to-top {
     position: fixed;
-    right: 24px;
-    bottom: 24px;
+    right: 22px;
+    bottom: 22px;
     z-index: 900;
-    width: 52px;
-    height: 52px;
+
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
+
     background: var(--black);
     color: var(--pink);
-    font-size: 22px;
+    border: 1px solid #333333;
+
+    font-family: var(--font-head);
+    font-size: 24px;
     font-weight: 700;
     text-decoration: none;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(14px);
-    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease),
-                visibility 0.4s, background 0.3s var(--ease), color 0.3s var(--ease);
-}
 
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 .back-to-top:hover {
     background: var(--pink);
-    color: #ffffff;
+    color: var(--white);
+    border-color: var(--pink);
+    transform: translateY(-4px);
 }
 
-/* ============================================================
-   Scroll reveal (added by script)
-   ============================================================ */
+/* ==================================================
+   15. RESPONSIVE DESIGN
+   ================================================== */
 
-.reveal {
-    opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-}
-
-.reveal.in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* The cards also have their own hover transforms; keep both working */
-.project-card.reveal.in:hover { transform: translateX(8px); }
-.activity.reveal.in:hover { transform: translateY(-6px); }
-
-/* ============================================================
-   Responsive
-   ============================================================ */
-
-@media (max-width: 950px) {
-    section { padding: 90px 0; }
-
-    .split {
-        grid-template-columns: 1fr;
-        gap: 44px;
+@media (max-width: 1000px) {
+    .navbar {
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px 5%;
     }
 
-    .section-title.side {
-        position: static;
+    .nav-links {
+        justify-content: center;
+        gap: 10px 18px;
+    }
+
+    .education-container,
+    .activities-container,
+    .hobbies-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .about-content {
-        grid-template-columns: 1fr;
-        gap: 70px;
+        grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+        gap: 45px;
     }
 
-    .about-image {
-        max-width: 320px;
-        margin: 0 auto 0 16px;
-    }
-
-    .activities-container {
-        grid-template-columns: 1fr;
+    .hero {
+        min-height: 85vh;
     }
 }
 
-@media (max-width: 650px) {
-    section { padding: 70px 0; }
-
-    .site-header {
-        width: 230px;
-        height: 70px;
+@media (max-width: 700px) {
+    section {
+        padding: 70px 0;
     }
 
-    .menu-btn {
-        width: 72px;
-        height: 70px;
+    .container {
+        width: 88%;
     }
 
-    .section-title { margin-bottom: 48px; }
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .nav-links {
+        gap: 8px 14px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
 
     .hero {
-        padding: 120px 6% 80px;
+        min-height: 78vh;
+        padding: 110px 6% 90px;
     }
 
-    .hero h1 { letter-spacing: -1px; }
+    .hero h1 {
+        font-size: clamp(37px, 9vw, 55px);
+        letter-spacing: -0.5px;
+    }
 
     .hero h2 {
-        padding: 0 16px;
-        letter-spacing: 2px;
+        font-size: 11px;
+        letter-spacing: 1.2px;
+        padding: 0 12px;
     }
 
-    .btn {
-        padding: 18px 28px;
-        letter-spacing: 2px;
+    .hero-description {
+        font-size: 12px;
     }
 
     .buttons {
         flex-direction: column;
         align-items: stretch;
+        width: min(100%, 300px);
+        margin: 30px auto 0;
     }
 
-    .btn { justify-content: center; }
+    .button {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 11px;
+    }
 
-    .skills-container { grid-template-columns: 1fr; }
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
 
-    .skill-box { padding: 32px 24px; }
+    .about-image {
+        max-width: 270px;
+    }
 
-    .project-card { padding: 28px 24px; }
+    .about-title {
+        margin-bottom: 50px;
+    }
 
-    .about-details { grid-template-columns: 1fr; }
+    .about-details {
+        grid-template-columns: 1fr;
+    }
 
-    .back-to-top { right: 14px; bottom: 14px; }
+    .education-container,
+    .skills-container,
+    .activities-container,
+    .hobbies-container {
+        grid-template-columns: 1fr;
+    }
+
+    .education-card,
+    .skill-box,
+    .activity {
+        padding: 27px 23px;
+    }
+
+    .project-card {
+        padding: 28px 23px;
+    }
+
+    .hobby {
+        min-height: 105px;
+        padding: 22px 24px;
+    }
+
+    .section-title {
+        margin-bottom: 50px;
+    }
+
+    .section-intro {
+        margin-top: -25px;
+    }
+
+    .back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 40px;
+        height: 40px;
+    }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+/* Reduce animation for users who prefer less motion */
 
-    .hero-text,
-    .hero::after {
-        animation: none;
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 
-    * { transition-duration: 0.01ms !important; }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
