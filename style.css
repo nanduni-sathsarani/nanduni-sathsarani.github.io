@@ -1,8 +1,10 @@
 
 /* ========================================
    NANDUNI SENARATNE — PORTFOLIO
-   Theme: Botanical green and soft ivory
+   Theme: Botanical Green and Soft Ivory
 ======================================== */
+
+/* Colour palette and fonts */
 
 :root {
     --dark-green: #174d38;
@@ -16,8 +18,10 @@
     --text: #26382e;
     --muted: #718075;
     --border: #dfe8dd;
-    --heading-font: "Playfair Display", Georgia, serif;
-    --body-font: "DM Sans", Arial, sans-serif;
+
+    --heading-font: "Poppins", sans-serif;
+    --body-font: "Nunito Sans", sans-serif;
+
     --shadow: 0 12px 35px rgba(23, 77, 56, 0.08);
 }
 
@@ -31,15 +35,15 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 95px;
+    scroll-padding-top: 100px;
 }
 
 body {
     background: var(--background);
     color: var(--text);
     font-family: var(--body-font);
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 18px;
+    line-height: 1.8;
     overflow-x: hidden;
 }
 
@@ -54,7 +58,7 @@ img {
 }
 
 section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 100px;
 }
 
 .section-padding {
@@ -67,14 +71,14 @@ section {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(251, 252, 248, 0.94);
+    background: rgba(251, 252, 248, 0.96);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(223, 232, 221, 0.9);
 }
 
 .navbar {
     max-width: 1440px;
-    min-height: 82px;
+    min-height: 88px;
     margin: 0 auto;
     padding: 16px 6%;
     display: flex;
@@ -86,7 +90,7 @@ section {
 .logo,
 .footer-logo {
     font-family: var(--heading-font);
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 700;
     color: var(--dark-green);
     white-space: nowrap;
@@ -101,12 +105,12 @@ section {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 24px;
+    gap: 22px;
 }
 
 .nav-links a {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     color: #526458;
     transition: color 0.25s ease;
 }
@@ -116,7 +120,7 @@ section {
 }
 
 .nav-links .nav-contact {
-    padding: 10px 17px;
+    padding: 11px 17px;
     color: var(--white);
     background: var(--dark-green);
     border-radius: 7px;
@@ -127,17 +131,27 @@ section {
     color: var(--white);
 }
 
-/* Hero */
+/* Hero section */
 
 .hero {
-    min-height: 650px;
+    min-height: 690px;
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
     gap: 50px;
+
     background:
-        radial-gradient(ellipse at 88% 15%, rgba(169, 214, 165, 0.25), transparent 34%),
-        linear-gradient(135deg, #fbfcf8 40%, #f0f6ed 100%);
+        radial-gradient(
+            ellipse at 88% 15%,
+            rgba(169, 214, 165, 0.25),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #fbfcf8 40%,
+            #f0f6ed 100%
+        );
+
     position: relative;
     overflow: hidden;
 }
@@ -147,12 +161,32 @@ section {
     z-index: 2;
 }
 
+/* Welcome message */
+
+.welcome-text {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding: 9px 20px;
+
+    background: var(--pale-green);
+    border-left: 4px solid var(--medium-green);
+    border-radius: 5px;
+
+    color: var(--dark-green);
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+/* Undergraduate label */
+
 .eyebrow,
 .section-label {
     color: var(--medium-green);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2.3px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .eyebrow {
@@ -171,47 +205,54 @@ section {
     background: var(--medium-green);
 }
 
+/* Hero heading */
+
 .hero h1 {
     font-family: var(--heading-font);
     color: var(--deep-green);
-    font-size: clamp(43px, 5.2vw, 72px);
-    font-weight: 600;
-    line-height: 1.15;
+    font-size: clamp(48px, 5.5vw, 78px);
+    font-weight: 700;
+    line-height: 1.25;
     letter-spacing: -1.5px;
 }
 
 .hero-name {
     color: var(--medium-green);
-    font-style: italic;
+    font-style: normal;
 }
 
 .hero-description {
-    max-width: 560px;
-    margin-top: 24px;
+    max-width: 580px;
+    margin-top: 25px;
     color: #647367;
-    font-size: 16px;
+    font-size: 19px;
     line-height: 1.9;
 }
+
+/* Hero buttons */
 
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 32px;
+    gap: 15px;
+    margin-top: 34px;
 }
 
 .button {
-    min-height: 48px;
+    min-height: 52px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 21px;
+    padding: 14px 24px;
+
     border: 1px solid transparent;
     border-radius: 7px;
+
     font-family: var(--body-font);
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
+
     transition: 0.25s ease;
 }
 
@@ -236,16 +277,19 @@ section {
     border-color: var(--medium-green);
 }
 
+/* University details */
+
 .hero-details {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 15px;
     margin-top: 43px;
+
     color: #68776b;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.6px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
 }
 
 .detail-divider {
@@ -259,7 +303,7 @@ section {
 
 .hero-decoration {
     position: relative;
-    min-height: 370px;
+    min-height: 390px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -272,13 +316,13 @@ section {
 }
 
 .circle-one {
-    width: 330px;
-    height: 330px;
+    width: 340px;
+    height: 340px;
 }
 
 .circle-two {
-    width: 245px;
-    height: 245px;
+    width: 255px;
+    height: 255px;
     background: rgba(169, 214, 165, 0.15);
 }
 
@@ -287,60 +331,62 @@ section {
     top: 5px;
     right: 17%;
     color: var(--medium-green);
-    font-size: 60px;
+    font-size: 65px;
     opacity: 0.65;
 }
 
 .hero-card {
     z-index: 1;
-    width: min(290px, 90%);
-    padding: 31px 26px;
-    background: rgba(255, 255, 255, 0.88);
+    width: min(310px, 90%);
+    padding: 35px 27px;
+
+    background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(223, 232, 221, 0.95);
     border-radius: 14px;
     box-shadow: var(--shadow);
+
     text-align: center;
     transform: rotate(-3deg);
 }
 
 .hero-card-icon {
     color: var(--medium-green);
-    font-size: 43px;
+    font-size: 46px;
 }
 
 .hero-card p {
     margin: 12px 0 6px;
     color: var(--dark-green);
     font-family: var(--heading-font);
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 600;
 }
 
 .hero-card > span:last-child {
     color: var(--muted);
-    font-size: 10px;
-    letter-spacing: 0.5px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
 }
 
 /* Section headings */
 
 .section-heading {
-    max-width: 740px;
-    margin: 0 auto 48px;
+    max-width: 780px;
+    margin: 0 auto 50px;
     text-align: center;
 }
 
 .section-label {
-    margin-bottom: 12px;
+    margin-bottom: 13px;
 }
 
 .section-heading h2,
 .cv-content h2 {
     color: var(--dark-green);
     font-family: var(--heading-font);
-    font-size: clamp(31px, 3.5vw, 43px);
-    font-weight: 600;
-    line-height: 1.3;
+    font-size: clamp(35px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.4;
 }
 
 .section-heading h2 span {
@@ -348,12 +394,13 @@ section {
 }
 
 .section-heading > p:last-child {
-    margin-top: 12px;
+    margin-top: 13px;
     color: var(--muted);
-    font-size: 14px;
+    font-size: 17px;
+    line-height: 1.8;
 }
 
-/* About */
+/* About section */
 
 .about-section {
     background: var(--white);
@@ -372,6 +419,7 @@ section {
     width: 100%;
     margin: 0 auto;
     padding: 12px;
+
     background: var(--pale-green);
     border-radius: 12px;
 }
@@ -383,7 +431,7 @@ section {
     object-position: center;
     border-radius: 7px;
 
-    /* Preserve the original colours of Profile.jpg */
+    /* Preserve the original Profile.jpg colours */
     filter: none;
     opacity: 1;
     mix-blend-mode: normal;
@@ -394,9 +442,10 @@ section {
     align-items: center;
     gap: 10px;
     padding: 15px 4px 5px;
+
     color: var(--dark-green);
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .caption-dot {
@@ -406,36 +455,35 @@ section {
 }
 
 .about-content h3 {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     color: var(--dark-green);
     font-family: var(--heading-font);
-    font-size: clamp(28px, 3vw, 39px);
-    font-weight: 600;
-    line-height: 1.35;
+    font-size: clamp(32px, 3.2vw, 43px);
+    font-weight: 700;
+    line-height: 1.4;
 }
 
 .about-content h3 span {
     color: var(--medium-green);
-    font-style: italic;
 }
 
 .about-content > p {
-    margin-bottom: 16px;
+    margin-bottom: 17px;
     color: #667368;
-    font-size: 14px;
+    font-size: 17px;
     line-height: 1.95;
 }
 
 .about-details {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 27px;
+    gap: 13px;
+    margin-top: 28px;
 }
 
 .detail-card {
     min-width: 0;
-    padding: 15px;
+    padding: 17px;
     background: #f5f8f2;
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -445,16 +493,16 @@ section {
     display: block;
     margin-bottom: 5px;
     color: var(--medium-green);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.3px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
 }
 
 .detail-card strong {
     display: block;
     color: var(--dark-green);
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     overflow-wrap: anywhere;
 }
 
@@ -467,15 +515,17 @@ section {
 .education-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 22px;
 }
 
 .education-card {
     position: relative;
-    padding: 30px 25px;
+    padding: 32px 26px;
+
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 10px;
+
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -494,15 +544,15 @@ section {
     margin-bottom: 30px;
     color: var(--light-green);
     font-family: var(--heading-font);
-    font-size: 29px;
+    font-size: 32px;
 }
 
 .card-category {
-    margin-bottom: 10px;
+    margin-bottom: 11px;
     color: var(--medium-green);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.4px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
 }
 
 .featured-card .card-category {
@@ -512,8 +562,8 @@ section {
 .education-card h3 {
     color: var(--dark-green);
     font-family: var(--heading-font);
-    font-size: 21px;
-    line-height: 1.45;
+    font-size: 23px;
+    line-height: 1.55;
 }
 
 .featured-card h3 {
@@ -521,9 +571,9 @@ section {
 }
 
 .course-name {
-    margin-top: 13px;
+    margin-top: 14px;
     color: #617166;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .featured-card .course-name {
@@ -533,18 +583,20 @@ section {
 .year-tag {
     display: inline-block;
     margin-top: 20px;
-    padding: 5px 10px;
+    padding: 6px 11px;
+
     background: rgba(169, 214, 165, 0.15);
     border-radius: 5px;
+
     color: var(--light-green);
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 800;
 }
 
 .result-text {
     margin-top: 18px;
     color: var(--muted);
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .featured-card .result-text {
@@ -564,42 +616,44 @@ section {
 }
 
 .skill-card {
-    padding: 32px;
+    padding: 35px;
     background: #f7faf5;
     border: 1px solid var(--border);
     border-radius: 12px;
 }
 
 .skill-icon {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     display: grid;
     place-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 21px;
+
     background: var(--pale-green);
     border-radius: 10px;
     color: var(--dark-green);
-    font-size: 24px;
+    font-size: 27px;
 }
 
 .skill-card h3 {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     color: var(--dark-green);
     font-family: var(--heading-font);
-    font-size: 25px;
+    font-size: 28px;
+    font-weight: 700;
 }
 
 .skill-list {
     display: grid;
-    gap: 12px;
+    gap: 13px;
     list-style: none;
 }
 
 .skill-list li {
     position: relative;
-    padding-left: 22px;
+    padding-left: 25px;
     color: #5f6e62;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .skill-list li::before {
@@ -607,7 +661,7 @@ section {
     position: absolute;
     left: 0;
     color: var(--medium-green);
-    font-weight: 700;
+    font-weight: 800;
 }
 
 /* Projects */
@@ -623,10 +677,11 @@ section {
 }
 
 .project-card {
-    padding: 27px;
+    padding: 29px;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 11px;
+
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -643,56 +698,57 @@ section {
 
 .project-index {
     color: var(--medium-green);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.4px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
 }
 
 .project-symbol {
     color: #8baa8b;
-    font-size: 21px;
+    font-size: 24px;
 }
 
 .project-icon {
-    width: 54px;
-    height: 54px;
+    width: 56px;
+    height: 56px;
     display: grid;
     place-items: center;
-    margin: 27px 0 19px;
+    margin: 27px 0 20px;
+
     background: var(--pale-green);
     border-radius: 12px;
     color: var(--dark-green);
-    font-size: 28px;
+    font-size: 30px;
 }
 
 .project-card h3 {
     color: var(--dark-green);
     font-family: var(--heading-font);
-    font-size: 21px;
-    line-height: 1.45;
+    font-size: 23px;
+    line-height: 1.55;
 }
 
 .project-card > p {
-    margin-top: 14px;
+    margin-top: 15px;
     color: #68776b;
-    font-size: 13px;
-    line-height: 1.85;
+    font-size: 16px;
+    line-height: 1.9;
 }
 
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: 8px;
     margin-top: 23px;
 }
 
 .project-tags span {
-    padding: 5px 9px;
+    padding: 6px 10px;
     background: #edf4e9;
     border-radius: 4px;
     color: var(--dark-green);
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 /* Leadership and activities */
@@ -712,7 +768,7 @@ section {
     grid-template-columns: 55px 1fr auto;
     align-items: center;
     gap: 20px;
-    padding: 23px 15px;
+    padding: 25px 15px;
     border-bottom: 1px solid var(--border);
     transition: background 0.25s ease;
 }
@@ -724,51 +780,60 @@ section {
 .activity-number {
     color: var(--medium-green);
     font-family: var(--heading-font);
-    font-size: 23px;
+    font-size: 27px;
 }
 
 .activity-item h3 {
     color: var(--dark-green);
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 800;
 }
 
 .activity-item p {
-    margin-top: 4px;
+    margin-top: 5px;
     color: var(--muted);
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .activity-type {
-    padding: 6px 11px;
+    padding: 7px 12px;
     background: var(--pale-green);
     border-radius: 5px;
     color: var(--dark-green);
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 800;
 }
 
 /* What I Value */
 
 .values-section {
     background:
-        radial-gradient(ellipse at 0% 100%, rgba(169, 214, 165, 0.18), transparent 35%),
+        radial-gradient(
+            ellipse at 0% 100%,
+            rgba(169, 214, 165, 0.18),
+            transparent 35%
+        ),
         #f2f7ef;
 }
 
 .values-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
+    gap: 19px;
 }
 
 .value-card {
-    min-height: 205px;
-    padding: 25px;
+    min-height: 215px;
+    padding: 27px;
+
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid #dce8d8;
     border-radius: 10px;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .value-card:hover {
@@ -778,28 +843,30 @@ section {
 }
 
 .value-icon {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     display: grid;
     place-items: center;
     margin-bottom: 18px;
+
     background: var(--pale-green);
     border-radius: 9px;
     color: var(--medium-green);
-    font-size: 21px;
+    font-size: 23px;
 }
 
 .value-card h3 {
-    margin-bottom: 9px;
+    margin-bottom: 10px;
     color: var(--dark-green);
     font-family: var(--heading-font);
-    font-size: 19px;
+    font-size: 21px;
+    line-height: 1.5;
 }
 
 .value-card p {
     color: #68776b;
-    font-size: 12px;
-    line-height: 1.8;
+    font-size: 15px;
+    line-height: 1.85;
 }
 
 /* CV section */
@@ -827,14 +894,15 @@ section {
 .cv-content h2 {
     margin-top: 12px;
     color: var(--white);
-    font-size: clamp(32px, 4vw, 46px);
+    font-size: clamp(35px, 4vw, 48px);
 }
 
 .cv-content > p:not(.section-label) {
     max-width: 580px;
-    margin: 15px 0 26px;
+    margin: 15px 0 27px;
     color: #d2e1d5;
-    font-size: 14px;
+    font-size: 17px;
+    line-height: 1.9;
 }
 
 .button-light {
@@ -861,27 +929,29 @@ section {
 }
 
 .contact-card {
-    max-width: 570px;
+    max-width: 600px;
     display: flex;
     align-items: center;
     gap: 20px;
     margin: 0 auto;
-    padding: 23px;
+    padding: 25px;
+
     background: #f6f9f3;
     border: 1px solid var(--border);
     border-radius: 10px;
 }
 
 .contact-icon {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     flex-shrink: 0;
     display: grid;
     place-items: center;
+
     background: var(--dark-green);
     border-radius: 9px;
     color: var(--white);
-    font-size: 23px;
+    font-size: 25px;
 }
 
 .contact-card > div:nth-child(2) {
@@ -890,8 +960,8 @@ section {
 
 .contact-card a:not(.contact-arrow) {
     color: var(--dark-green);
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 800;
     overflow-wrap: anywhere;
 }
 
@@ -902,47 +972,49 @@ section {
 .contact-arrow {
     display: grid;
     place-items: center;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
     margin-left: auto;
+
     background: var(--pale-green);
     border-radius: 50%;
     color: var(--dark-green);
-    font-size: 19px;
+    font-size: 21px;
 }
 
 /* Footer */
 
 .site-footer {
-    padding: 38px 6%;
+    padding: 40px 6%;
     background: #f1f5ee;
     border-top: 1px solid var(--border);
     text-align: center;
 }
 
 .footer-logo {
-    font-size: 20px;
+    font-size: 23px;
 }
 
 .site-footer > p {
-    margin-top: 8px;
+    margin-top: 9px;
     color: #68776b;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .site-footer .copyright {
-    margin-top: 16px;
+    margin-top: 17px;
     color: #849086;
-    font-size: 10px;
+    font-size: 12px;
 }
 
-/* Responsive design */
+/* Tablet screens */
 
 @media (max-width: 1100px) {
+
     .navbar {
         flex-direction: column;
-        gap: 13px;
+        gap: 14px;
         padding-top: 18px;
         padding-bottom: 18px;
     }
@@ -957,8 +1029,17 @@ section {
         gap: 25px;
     }
 
+    .hero h1 {
+        font-size: clamp(45px, 5.5vw, 65px);
+    }
+
     .about-grid {
         gap: 40px;
+    }
+
+    .education-grid,
+    .values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .projects-grid {
@@ -966,25 +1047,48 @@ section {
     }
 }
 
+/* Mobile screens */
+
 @media (max-width: 760px) {
+
     .section-padding {
         padding: 72px 6%;
+    }
+
+    .navbar {
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 10px 17px;
     }
 
     .hero {
         min-height: auto;
         grid-template-columns: 1fr;
         gap: 20px;
-        padding-top: 75px;
+        padding-top: 65px;
         padding-bottom: 45px;
     }
 
+    .welcome-text {
+        margin-bottom: 18px;
+        padding: 8px 15px;
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
     .hero h1 {
-        font-size: clamp(41px, 10vw, 60px);
+        font-size: clamp(42px, 9vw, 62px);
+        line-height: 1.25;
+    }
+
+    .hero-description {
+        font-size: 17px;
     }
 
     .hero-decoration {
-        min-height: 280px;
+        min-height: 290px;
     }
 
     .circle-one {
@@ -999,12 +1103,13 @@ section {
 
     .leaf-symbol {
         right: 15%;
-        font-size: 45px;
+        font-size: 48px;
     }
 
     .hero-details {
         gap: 10px;
         margin-top: 30px;
+        font-size: 12px;
     }
 
     .about-grid {
@@ -1017,10 +1122,7 @@ section {
     }
 
     .education-grid,
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
+    .projects-grid,
     .skills-grid {
         grid-template-columns: 1fr;
     }
@@ -1045,16 +1147,24 @@ section {
         grid-column: 2;
         justify-self: start;
     }
+
+    .section-heading h2,
+    .cv-content h2 {
+        font-size: 34px;
+    }
 }
 
+/* Small mobile screens */
+
 @media (max-width: 480px) {
+
     .navbar {
         padding-right: 4%;
         padding-left: 4%;
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 21px;
     }
 
     .nav-links {
@@ -1062,11 +1172,20 @@ section {
     }
 
     .nav-links a {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .nav-links .nav-contact {
         padding: 7px 11px;
+    }
+
+    .hero h1 {
+        font-size: 41px;
+        letter-spacing: -0.8px;
+    }
+
+    .hero-description {
+        font-size: 16px;
     }
 
     .hero-buttons {
@@ -1079,19 +1198,31 @@ section {
     }
 
     .hero-details {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     .about-details {
         grid-template-columns: 1fr;
     }
 
+    .education-grid,
+    .projects-grid,
+    .skills-grid,
     .values-grid {
         grid-template-columns: 1fr;
     }
 
+    .section-heading h2,
+    .cv-content h2 {
+        font-size: 30px;
+    }
+
     .value-card {
         min-height: auto;
+    }
+
+    .skill-card {
+        padding: 26px;
     }
 
     .contact-card {
@@ -1100,11 +1231,11 @@ section {
     }
 
     .contact-card a:not(.contact-arrow) {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .contact-icon {
-        width: 40px;
-        height: 40px;
+        width: 42px;
+        height: 42px;
     }
 }
