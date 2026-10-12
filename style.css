@@ -31,7 +31,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 75px;
 }
 
 body {
@@ -55,7 +55,7 @@ img {
 }
 
 section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 75px;
 }
 
 .section-padding {
@@ -123,25 +123,27 @@ section {
     background: var(--leaf-green);
 }
 
-/* Hero Section - Fully Centered & Natural */
+/* Hero Section - Fully Centered (Horizontal & Vertical) */
 .hero {
-    min-height: 75vh;
+    min-height: calc(100vh - 75px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background: var(--bg-main);
-    padding-top: 100px;
-    padding-bottom: 80px;
+    padding: 60px 5%;
     border-bottom: 1px solid var(--border-line);
 }
 
 .hero-content {
     max-width: 760px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 /* Welcome Text Tag */
@@ -155,6 +157,7 @@ section {
     font-weight: 700;
     letter-spacing: 1.5px;
     margin-bottom: 18px;
+    text-align: center;
 }
 
 /* Eyebrow Subheading */
@@ -164,6 +167,7 @@ section {
     font-weight: 700;
     letter-spacing: 1.5px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 /* Hero Main Title */
@@ -174,6 +178,7 @@ section {
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .hero-name {
@@ -187,11 +192,15 @@ section {
     color: var(--text-muted);
     font-size: clamp(18px, 1.8vw, 21px);
     line-height: 1.7;
-    margin-bottom: 35px;
+    margin: 0 auto 35px auto;
+    text-align: center;
 }
 
 .hero-action {
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 /* Primary Button */
@@ -226,6 +235,7 @@ section {
     color: var(--text-muted);
     font-size: 14px;
     font-weight: 600;
+    text-align: center;
 }
 
 .detail-divider {
@@ -717,6 +727,11 @@ section {
     .nav-links {
         justify-content: center;
         gap: 12px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 80px 5%;
     }
 
     .education-grid,
