@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +8,16 @@
     <title>Nanduni Senaratne | Biotechnology Portfolio</title>
     <meta name="description" content="The academic portfolio of Nanduni Senaratne, Biotechnology undergraduate at SLIIT.">
 
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav>
-        <a href="#home" class="logo">Nanduni Senaratne.</a>
+    <nav class="navbar">
+        <a href="#home" class="logo">Nanduni Senaratne</a>
 
         <div class="nav-links">
             <a href="#home">Home</a>
@@ -24,6 +26,7 @@
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#activities">Activities</a>
+            <a href="#qualities">Values</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -31,16 +34,13 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-text">
-
             <p class="small-title">HELLO, WELCOME TO MY PORTFOLIO</p>
 
-            <h1>
-                Hi, I'm <span>Nanduni Senaratne.</span>
-            </h1>
+            <h1>Hi, I'm <span>Nanduni Senaratne.</span></h1>
 
             <h2>BSc (Hons) Biotechnology Undergraduate</h2>
 
-            <p>
+            <p class="hero-description">
                 Passionate about biotechnology, laboratory science,
                 scientific discovery and continuous learning.
                 Exploring how science and technology can make
@@ -48,288 +48,362 @@
             </p>
 
             <div class="buttons">
-                <a href="#about" class="button">Discover More</a>
+                <a href="#about" class="button button-outline">
+                    Discover More
+                </a>
 
                 <a href="Nanduni_Senaratne_CV.pdf"
-                   class="button secondary"
+                   class="button button-pink"
                    download>
                     Download CV
                 </a>
             </div>
-
         </div>
+
+        <a href="#about" class="scroll-down" aria-label="Scroll to About Me">
+            <span></span>
+        </a>
     </section>
 
     <!-- About Me -->
-    <section id="about">
-        <h2>About Me</h2>
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title about-title">About Me</h2>
 
-        <div class="about-content">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="Profile.jpg"
+                         alt="Portrait of Nanduni Senaratne">
+                </div>
 
-            <div class="about-image">
-                <img src="Profile.jpg"
-                     alt="Portrait of Nanduni Senaratne">
-            </div>
+                <div class="about-text">
+                    <p class="small-title">GET TO KNOW ME</p>
 
-            <div class="about-text">
-                <h3>A little about myself</h3>
+                    <h3>A little about myself</h3>
 
-                <p>
-                    I am a Biotechnology undergraduate at the
-                    Sri Lanka Institute of Information Technology
-                    (SLIIT). I am interested in understanding
-                    biological processes and exploring the
-                    applications of biotechnology in everyday life.
-                </p>
-
-                <p>
-                    I value teamwork, leadership, responsibility
-                    and continuous improvement. Through academic
-                    assignments and extracurricular activities,
-                    I aim to develop both my scientific knowledge
-                    and professional skills.
-                </p>
-
-                <p>
-                    My goal is to continue learning, gain practical
-                    experience and contribute positively to the
-                    scientific community.
-                </p>
-
-                <div class="about-details">
-                    <p><strong>Degree:</strong> BSc (Hons) Biotechnology</p>
-                    <p><strong>University:</strong> SLIIT</p>
-                    <p><strong>Batch:</strong> 13</p>
-                    <p><strong>Email:</strong>
-                        <a href="mailto:nanduninss@gmail.com">
-                            nanduninss@gmail.com
-                        </a>
+                    <p>
+                        I am a Biotechnology undergraduate at the
+                        Sri Lanka Institute of Information Technology
+                        (SLIIT). I am interested in understanding
+                        biological processes and exploring the
+                        applications of biotechnology in everyday life.
                     </p>
+
+                    <p>
+                        I value teamwork, leadership, responsibility
+                        and continuous improvement. Through academic
+                        assignments and extracurricular activities,
+                        I aim to develop both my scientific knowledge
+                        and professional skills.
+                    </p>
+
+                    <p>
+                        My goal is to continue learning, gain practical
+                        experience and contribute positively to the
+                        scientific community.
+                    </p>
+
+                    <div class="about-details">
+                        <p>
+                            <strong>Degree</strong>
+                            <span>BSc (Hons) Biotechnology</span>
+                        </p>
+
+                        <p>
+                            <strong>University</strong>
+                            <span>SLIIT</span>
+                        </p>
+
+                        <p>
+                            <strong>Batch</strong>
+                            <span>13</span>
+                        </p>
+
+                        <p>
+                            <strong>Email</strong>
+                            <a href="mailto:nanduninss@gmail.com">
+                                nanduninss@gmail.com
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Education -->
-    <section id="education">
-        <h2>Education & Qualifications</h2>
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education &amp; Qualifications</h2>
 
-        <div class="education-container">
+            <div class="education-container">
+                <article class="education-card">
+                    <p class="card-label">2025 – 2029</p>
+                    <h3>BSc (Hons) Biotechnology</h3>
 
-            <div class="education-card">
-                <p class="small-title">2025 – 2029</p>
-                <h3>BSc (Hons) Biotechnology</h3>
-                <p class="institution">
-                    Sri Lanka Institute of Information Technology
-                </p>
-                <p>
-                    Undergraduate studies focused on biotechnology
-                    and related scientific disciplines.
-                </p>
+                    <p class="institution">
+                        Sri Lanka Institute of Information Technology
+                    </p>
+
+                    <p>
+                        Undergraduate studies focused on biotechnology
+                        and related scientific disciplines.
+                    </p>
+                </article>
+
+                <article class="education-card">
+                    <p class="card-label">Advanced Level</p>
+                    <h3>G.C.E. Advanced Level</h3>
+
+                    <p class="institution">
+                        Sirimavo Bandaranaike Vidyalaya, Colombo 07
+                    </p>
+
+                    <p>Biological Science Stream</p>
+                    <p>Results: 2 C passes and 1 S pass</p>
+                </article>
+
+                <article class="education-card">
+                    <p class="card-label">Ordinary Level</p>
+                    <h3>G.C.E. Ordinary Level</h3>
+
+                    <p class="institution">School Education</p>
+
+                    <p>Results: 8 A passes and 1 B pass</p>
+                </article>
             </div>
-
-            <div class="education-card">
-                <p class="small-title">Advanced Level</p>
-                <h3>G.C.E. Advanced Level</h3>
-                <p class="institution">
-                    Sirimavo Bandaranaike Vidyalaya, Colombo 07
-                </p>
-                <p>Biological Science Stream</p>
-                <p>Results: 2 C passes and 1 S pass</p>
-            </div>
-
-            <div class="education-card">
-                <p class="small-title">Ordinary Level</p>
-                <h3>G.C.E. Ordinary Level</h3>
-                <p class="institution">
-                    School Education
-                </p>
-                <p>Results: 8 A passes and 1 B pass</p>
-            </div>
-
         </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills">
-        <h2>My Skills</h2>
+    <section id="skills" class="section bg-grey">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
 
-        <div class="skills-container">
+            <div class="skills-container">
+                <div class="skill-box">
+                    <h3>Technical Skills</h3>
 
-            <div class="skill-box">
-                <h3>Technical Skills</h3>
-                <ul>
-                    <li>Microsoft Excel</li>
-                    <li>Python – foundational skills</li>
-                    <li>Canva and visual design</li>
-                    <li>Generative AI tools</li>
-                    <li>Project documentation</li>
-                    <li>Scientific learning and research</li>
-                </ul>
+                    <ul>
+                        <li>Microsoft Excel</li>
+                        <li>Python – foundational skills</li>
+                        <li>Canva and visual design</li>
+                        <li>Generative AI tools</li>
+                        <li>Project documentation</li>
+                        <li>Scientific learning and research</li>
+                    </ul>
+                </div>
+
+                <div class="skill-box">
+                    <h3>Professional Skills</h3>
+
+                    <ul>
+                        <li>Leadership</li>
+                        <li>Communication</li>
+                        <li>Problem-solving</li>
+                        <li>Time management</li>
+                        <li>Teamwork and collaboration</li>
+                        <li>Organization and responsibility</li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="skill-box">
-                <h3>Professional Skills</h3>
-                <ul>
-                    <li>Leadership</li>
-                    <li>Communication</li>
-                    <li>Problem-solving</li>
-                    <li>Time management</li>
-                    <li>Teamwork and collaboration</li>
-                    <li>Organization and responsibility</li>
-                </ul>
-            </div>
-
         </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
-        <h2>Academic Projects</h2>
+    <!-- Academic Projects -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Academic Projects</h2>
 
-        <div class="projects-container">
+            <div class="projects-container">
+                <article class="project-card">
+                    <p class="project-number">01 / BIOTECHNOLOGY</p>
 
-            <div class="project-card">
-                <p class="project-number">01 / BIOTECHNOLOGY</p>
-                <h3>Mycelium Leather Project</h3>
+                    <h3>Mycelium Leather Project</h3>
 
-                <p>
-                    Participated in a group video project exploring
-                    the production of a leather-like material using
-                    mycelium and organic waste.
-                </p>
+                    <p>
+                        Participated in a group video project exploring
+                        the production of a leather-like material using
+                        mycelium and organic waste.
+                    </p>
 
-                <p class="project-skills">
-                    Sustainability · Biotechnology · Teamwork
-                </p>
+                    <p class="project-skills">
+                        Sustainability · Biotechnology · Teamwork
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <p class="project-number">02 / BIOINFORMATICS</p>
+
+                    <h3>Gold Biotechnology and Bioinformatics</h3>
+
+                    <p>
+                        Contributed to a group assignment exploring
+                        biotechnology and bioinformatics applications
+                        and their relevance to scientific development.
+                    </p>
+
+                    <p class="project-skills">
+                        Research · Collaboration · Presentation
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <p class="project-number">03 / SCIENTIFIC DEBATE</p>
+
+                    <h3>De-extinction Debate</h3>
+
+                    <p>
+                        Participated in a group debate examining the
+                        scientific possibilities, ethical concerns
+                        and ecological implications of de-extinction.
+                    </p>
+
+                    <p class="project-skills">
+                        Critical Thinking · Research · Communication
+                    </p>
+                </article>
             </div>
-
-            <div class="project-card">
-                <p class="project-number">02 / BIOINFORMATICS</p>
-                <h3>Gold Biotechnology and Bioinformatics</h3>
-
-                <p>
-                    Contributed to a group assignment exploring
-                    biotechnology and bioinformatics applications
-                    and their relevance to scientific development.
-                </p>
-
-                <p class="project-skills">
-                    Research · Collaboration · Presentation
-                </p>
-            </div>
-
-            <div class="project-card">
-                <p class="project-number">03 / SCIENTIFIC DEBATE</p>
-                <h3>De-extinction Debate</h3>
-
-                <p>
-                    Participated in a group debate examining the
-                    scientific possibilities, ethical concerns
-                    and ecological implications of de-extinction.
-                </p>
-
-                <p class="project-skills">
-                    Critical Thinking · Research · Communication
-                </p>
-            </div>
-
         </div>
     </section>
 
     <!-- Leadership and Activities -->
-    <section id="activities">
-        <h2>Leadership & Activities</h2>
+    <section id="activities" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title light-title">
+                Leadership &amp; Activities
+            </h2>
 
-        <p class="section-intro">
-            Learning and growing through leadership, teamwork
-            and extracurricular involvement.
-        </p>
+            <p class="section-intro">
+                Learning and growing through leadership, teamwork
+                and extracurricular involvement.
+            </p>
 
-        <div class="activities-container">
+            <div class="activities-container">
+                <article class="activity">
+                    <h3>Leadership</h3>
 
-            <div class="activity">
-                <h3>Leadership</h3>
-                <p>
-                    Chief Organizer – Sinhala Debating and
-                    Oratory Society
-                </p>
-                <p>Batch Representative – SLIIT, Batch 13</p>
+                    <p>
+                        Chief Organizer – Sinhala Debating and
+                        Oratory Society
+                    </p>
+
+                    <p>Batch Representative – SLIIT, Batch 13</p>
+                </article>
+
+                <article class="activity">
+                    <h3>School Committees</h3>
+
+                    <p>Sports Meet Organizing Committee</p>
+                    <p>School Media Unit</p>
+                    <p>Astronomy Society</p>
+                    <p>Science Society</p>
+                </article>
+
+                <article class="activity">
+                    <h3>Other Activities</h3>
+
+                    <p>Member – Western Band</p>
+
+                    <p>
+                        Participating in collaborative and
+                        extracurricular activities.
+                    </p>
+                </article>
             </div>
-
-            <div class="activity">
-                <h3>School Committees</h3>
-                <p>Sports Meet Organizing Committee</p>
-                <p>School Media Unit</p>
-                <p>Astronomy Society</p>
-                <p>Science Society</p>
-            </div>
-
-            <div class="activity">
-                <h3>Other Activities</h3>
-                <p>Member – Western Band</p>
-                <p>
-                    Participating in collaborative and
-                    extracurricular activities.
-                </p>
-            </div>
-
         </div>
     </section>
 
-    <!-- Personal Qualities -->
-    <section id="qualities">
-        <h2>What I Value</h2>
+    <!-- What I Value -->
+    <section id="qualities" class="section values-section">
+        <div class="container">
+            <h2 class="section-title">What I Value</h2>
 
-        <div class="hobbies-container">
-            <div class="hobby">Continuous Learning</div>
-            <div class="hobby">Scientific Discovery</div>
-            <div class="hobby">Teamwork</div>
-            <div class="hobby">Leadership</div>
-            <div class="hobby">Creative Thinking</div>
-            <div class="hobby">Personal Growth</div>
+            <p class="section-intro">
+                The principles and interests that inspire my
+                learning and personal growth.
+            </p>
+
+            <div class="hobbies-container">
+                <div class="hobby">
+                    <span class="value-number">01</span>
+                    <h3>Continuous Learning</h3>
+                </div>
+
+                <div class="hobby">
+                    <span class="value-number">02</span>
+                    <h3>Scientific Discovery</h3>
+                </div>
+
+                <div class="hobby">
+                    <span class="value-number">03</span>
+                    <h3>Teamwork</h3>
+                </div>
+
+                <div class="hobby">
+                    <span class="value-number">04</span>
+                    <h3>Leadership</h3>
+                </div>
+
+                <div class="hobby">
+                    <span class="value-number">05</span>
+                    <h3>Creative Thinking</h3>
+                </div>
+
+                <div class="hobby">
+                    <span class="value-number">06</span>
+                    <h3>Personal Growth</h3>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- CV -->
-    <section id="cv">
-        <h2>Explore My CV</h2>
+    <section id="cv" class="section cv-section">
+        <div class="container">
+            <p class="small-title">MY CURRICULUM VITAE</p>
 
-        <p>
-            Learn more about my education, skills,
-            experiences and qualifications.
-        </p>
+            <h2>Explore My CV</h2>
 
-        <a href="Nanduni_Senaratne_CV.pdf"
-           class="button"
-           download>
-            Download My CV (PDF)
-        </a>
+            <p>
+                Learn more about my education, skills,
+                experiences and qualifications.
+            </p>
+
+            <a href="Nanduni_Senaratne_CV.pdf"
+               class="button button-light"
+               download>
+                Download My CV (PDF)
+            </a>
+        </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact">
-        <h2>Let's Connect</h2>
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <p class="small-title">GET IN TOUCH</p>
 
-        <p>
-            Thank you for visiting my portfolio.
-            Feel free to contact me for academic,
-            professional or collaborative opportunities.
-        </p>
+            <h2 class="section-title">Let's Connect</h2>
 
-        <div class="contact-info">
-            <p>
-                Email:
-                <a href="mailto:nanduninss@gmail.com">
-                    nanduninss@gmail.com
-                </a>
+            <p class="contact-description">
+                Thank you for visiting my portfolio.
+                Feel free to contact me for academic,
+                professional or collaborative opportunities.
             </p>
 
-            <a href="mailto:nanduninss@gmail.com"
-               class="button">
-                Contact Me
-            </a>
+            <div class="contact-info">
+                <p>
+                    Email:
+                    <a href="mailto:nanduninss@gmail.com">
+                        nanduninss@gmail.com
+                    </a>
+                </p>
+
+                <a href="mailto:nanduninss@gmail.com"
+                   class="button button-pink">
+                    Contact Me
+                </a>
+            </div>
         </div>
     </section>
 
@@ -339,9 +413,13 @@
             &copy; 2026 Nanduni Senaratne |
             Biotechnology Undergraduate
         </p>
+
         <p>Built with curiosity, creativity and a love for science.</p>
     </footer>
 
+    <a href="#home" class="back-to-top" aria-label="Back to top">
+        ↑
+    </a>
+
 </body>
 </html>
-```
