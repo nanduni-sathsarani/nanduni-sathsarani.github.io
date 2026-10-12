@@ -1,4 +1,4 @@
-# Nanduni Senaratne – Personal Portfolio
+# Nanduni Senaratne – Portfolio
 
 **BSc (Hons) Biotechnology**
 
