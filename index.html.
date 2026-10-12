@@ -109,6 +109,17 @@
         </ul>
     </section>
 
+    <section id="cv">
+    <h2>My Curriculum Vitae</h2>
+    <p>You can download my CV using the button below.</p>
+
+    <a href="Nanduni_Senaratne_CV.pdf"
+       download
+       class="button">
+        Download My CV
+      </a>
+    </section>
+
     <section id="contact">
         <h2>Contact</h2>
         <p>Email: nanduninss@gmail.com</p>
