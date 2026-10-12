@@ -296,7 +296,7 @@ section {
 
 .profile-image {
     width: 100%;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 6 / 4;
     object-fit: cover;
     border-radius: 2px;
 }
