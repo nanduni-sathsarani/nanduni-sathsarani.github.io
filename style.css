@@ -1,238 +1,475 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+```css
+/* General */
 
-    <title>Nanduni Senaratne | Biotechnology Undergraduate</title>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <link rel="stylesheet" href="style.css">
-</head>
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
 
-<body>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    color: #000000;
+    background: #e8f5e9;
+}
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#home" class="logo">NS.</a>
+a {
+    transition: 0.3s ease;
+}
 
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#activities">Activities</a>
-            <a href="#cv">CV</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+section {
+    padding: 85px 8%;
+    max-width: 1250px;
+    margin: auto;
+}
 
-    <!-- Home -->
-    <section id="home" class="hero">
-        <div class="hero-text">
-            <p class="small-title">WELCOME TO MY E-PORTFOLIO</p>
+section h2 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    color: #14532d;
+    margin-bottom: 45px;
+}
 
-            <h1>Hi, I'm <span>Nanduni Senaratne</span></h1>
+section h3 {
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
 
-            <h2>BSc (Hons) Biotechnology Undergraduate</h2>
+/* Navigation */
 
-            <p>
-                Welcome to my e-Portfolio. I am interested in
-                biotechnology, laboratory science, technology
-                and continuous learning.
-            </p>
+nav {
+    background: #173d2b;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+}
 
-            <div class="buttons">
-                <a href="#about" class="button">About Me</a>
-                <a href="Nanduni_Senaratne_CV.pdf"
-                   class="button secondary"
-                   download>Download CV</a>
-            </div>
-        </div>
-    </section>
+.logo {
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
 
-    <!-- About -->
-    <section id="about">
-        <h2>About Me</h2>
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
 
-        <div class="about-content">
-            <div class="about-image">
-                <img src="Profile.jpg"
-                     alt="Nanduni Senaratne">
-            </div>
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
 
-            <div class="about-text">
-                <h3>A Little About Me</h3>
+.nav-links a:hover {
+    color: #b7e4c7;
+}
 
-                <p>
-                    I am a BSc (Hons) Biotechnology undergraduate at the
-                    Sri Lanka Institute of Information Technology (SLIIT).
-                    I am interested in biotechnology, laboratory science,
-                    technology and continuous learning.
-                </p>
+/* Home */
 
-                <p>
-                    I am a strong leader and problem-solver committed
-                    to laboratory safety and quality standards.
-                </p>
-            </div>
-        </div>
-    </section>
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    max-width: none;
+    padding-left: 12%;
+    padding-right: 12%;
+}
 
-    <!-- Education -->
-    <section id="education">
-        <h2>Education</h2>
+.hero-text {
+    max-width: 800px;
+}
 
-        <div class="education-container">
-            <div class="education-card">
-                <span class="card-label">2025 – 2029</span>
-                <h3>BSc (Hons) Biotechnology</h3>
-                <p class="institution">
-                    Sri Lanka Institute of Information Technology (SLIIT)
-                </p>
-            </div>
+.small-title {
+    color: #245c3a;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
 
-            <div class="education-card">
-                <span class="card-label">Advanced Level</span>
-                <h3>G.C.E. Advanced Level</h3>
-                <p class="institution">
-                    Sirimavo Bandaranaike Vidyalaya, Colombo 07
-                </p>
-                <p>Biological Science Stream – 2 C's and 1 S</p>
-            </div>
+.hero h1 {
+    color: #173d2b;
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
 
-            <div class="education-card">
-                <span class="card-label">Ordinary Level</span>
-                <h3>G.C.E. Ordinary Level</h3>
-                <p>8 A's and 1 B</p>
-            </div>
-        </div>
-    </section>
+.hero h1 span {
+    color: #2e7d32;
+}
 
-    <!-- Skills -->
-    <section id="skills">
-        <h2>My Skills</h2>
+.hero h2 {
+    color: #000000;
+    font-size: clamp(20px, 2.5vw, 27px);
+    text-align: left;
+    margin-bottom: 18px;
+}
 
-        <div class="skills-container">
-            <div class="skill-box">
-                <h3>Technical Skills</h3>
-                <ul>
-                    <li>Microsoft Excel</li>
-                    <li>Python</li>
-                    <li>Canva</li>
-                    <li>Generative AI</li>
-                    <li>Project Documentation</li>
-                </ul>
-            </div>
+.hero p {
+    color: #000000;
+    font-size: 17px;
+    max-width: 680px;
+    margin-bottom: 22px;
+}
 
-            <div class="skill-box">
-                <h3>Soft Skills</h3>
-                <ul>
-                    <li>Leadership</li>
-                    <li>Communication</li>
-                    <li>Problem Solving</li>
-                    <li>Time Management</li>
-                    <li>Teamwork</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+/* Buttons */
 
-    <!-- Projects -->
-    <section id="projects">
-        <h2>Projects</h2>
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
 
-        <div class="projects-container">
-            <div class="project-card">
-                <span class="project-number">01</span>
-                <h3>Mycelium Leather Project</h3>
-                <p>
-                    A group biotechnology video project exploring
-                    the production of a leather-like material using
-                    mycelium and organic waste.
-                </p>
-            </div>
+.button {
+    display: inline-block;
+    background: #2e7d32;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border: 2px solid #2e7d32;
+    border-radius: 7px;
+    font-weight: bold;
+    text-align: center;
+}
 
-            <div class="project-card">
-                <span class="project-number">02</span>
-                <h3>Gold Biotechnology and Bioinformatics</h3>
-                <p>
-                    A group assignment exploring biotechnology
-                    and bioinformatics applications.
-                </p>
-            </div>
+.button:hover {
+    background: #14532d;
+    border-color: #14532d;
+    transform: translateY(-2px);
+}
 
-            <div class="project-card">
-                <span class="project-number">03</span>
-                <h3>De-extinction Debate</h3>
-                <p>
-                    Participated in a group debate exploring the
-                    scientific, ethical and ecological aspects
-                    of de-extinction.
-                </p>
-            </div>
-        </div>
-    </section>
+.button.secondary {
+    background: transparent;
+    color: #14532d;
+    border-color: #14532d;
+}
 
-    <!-- Leadership and Activities -->
-    <section id="activities">
-        <h2>Leadership &amp; Activities</h2>
+.button.secondary:hover {
+    background: #14532d;
+    color: white;
+}
 
-        <div class="activities-container">
-            <div class="activity">
-                <h3>Leadership</h3>
-                <p>Chief Organizer – Sinhala Debating and Oratory Society</p>
-                <p>Batch Representative – SLIIT, Batch 13</p>
-            </div>
+/* About */
 
-            <div class="activity">
-                <h3>Committees</h3>
-                <p>Sports Meet Organizing Committee</p>
-                <p>School Media Unit</p>
-                <p>Astronomy Society</p>
-                <p>Science Society</p>
-            </div>
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+}
 
-            <div class="activity">
-                <h3>Other Activities</h3>
-                <p>Member – Western Band</p>
-            </div>
-        </div>
-    </section>
+.about-image {
+    flex: 1;
+    text-align: center;
+}
 
-    <!-- CV -->
-    <section id="cv">
-        <h2>My Curriculum Vitae</h2>
+.about-image img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 18px;
+    border: 5px solid #ffffff;
+    box-shadow: 0 8px 25px rgba(20, 83, 45, 0.15);
+}
 
-        <p>You can download my CV using the button below.</p>
+.about-text {
+    flex: 2;
+}
 
-        <a href="Nanduni_Senaratne_CV.pdf"
-           class="button"
-           download>
-            Download My CV
-        </a>
-    </section>
+.about-text h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact</h2>
+.about-text p {
+    color: #000000;
+    margin-bottom: 18px;
+}
 
-        <p>Email: nanduninss@gmail.com</p>
+/* Education */
 
-        <div class="contact-info">
-            <a href="mailto:nanduninss@gmail.com" class="button">
-                Get in Touch
-            </a>
-        </div>
-    </section>
+.education-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Nanduni Senaratne</p>
-        <p>Biotechnology Undergraduate | SLIIT</p>
-    </footer>
+.education-card {
+    background: #f8fff8;
+    padding: 30px;
+    border-radius: 14px;
+    border-bottom: 4px solid #2e7d32;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+}
 
-</body>
-</html>
+.education-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-label {
+    display: inline-block;
+    background: #d5ebd8;
+    color: #14532d;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.education-card h3 {
+    font-size: 20px;
+}
+
+.institution {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Skills */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.skill-box {
+    background: #f8fff8;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+    border-left: 5px solid #2e7d32;
+}
+
+.skill-box h3 {
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.skill-box ul {
+    padding-left: 22px;
+}
+
+.skill-box li {
+    margin-bottom: 10px;
+}
+
+/* Projects */
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: #f8fff8;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+    border-top: 4px solid #2e7d32;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(20, 83, 45, 0.12);
+}
+
+.project-number {
+    display: inline-block;
+    color: #2e7d32;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #000000;
+}
+
+/* Activities */
+
+.activities-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.activity {
+    background: #d5ebd8;
+    padding: 28px;
+    border-radius: 12px;
+    border: 1px solid #c1dfc6;
+}
+
+.activity h3 {
+    font-size: 21px;
+    margin-bottom: 18px;
+}
+
+.activity p {
+    margin-bottom: 12px;
+}
+
+/* CV */
+
+#cv {
+    text-align: center;
+    background: #d5ebd8;
+    max-width: none;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+#cv p {
+    margin-bottom: 25px;
+}
+
+/* Contact */
+
+#contact {
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 25px;
+}
+
+.contact-info a:not(.button) {
+    color: #14532d;
+    font-weight: bold;
+}
+
+/* Footer */
+
+footer {
+    background: #173d2b;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsive design */
+
+@media (max-width: 950px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 12px 18px;
+    }
+
+    .education-container,
+    .projects-container,
+    .activities-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+}
+
+@media (max-width: 650px) {
+    section {
+        padding: 60px 6%;
+    }
+
+    section h2 {
+        font-size: 28px;
+        margin-bottom: 32px;
+    }
+
+    .hero {
+        padding: 65px 7%;
+        min-height: 75vh;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-image img {
+        max-width: 250px;
+    }
+
+    .education-container,
+    .skills-container,
+    .projects-container,
+    .activities-container {
+        grid-template-columns: 1fr;
+    }
+
+    .education-card,
+    .skill-box,
+    .project-card,
+    .activity {
+        padding: 25px;
+    }
+
+    .nav-links {
+        gap: 10px 14px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .buttons {
+        align-items: flex-start;
+    }
+}
 ```
