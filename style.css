@@ -583,6 +583,42 @@ section {
     line-height: 1.3;
 }
 
+.project-link {
+    color: var(--dark-green);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.project-link:hover {
+    color: var(--leaf-green);
+    text-decoration: underline;
+}
+/* --------------------------------- */
+
+.project-card > p {
+    margin-top: 10px;
+    margin-bottom: 18px;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.55;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.project-tags span {
+    padding: 4px 10px;
+    background: var(--bg-tint);
+    color: var(--dark-green);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
 .project-card > p {
     margin-top: 10px;
     margin-bottom: 18px;
