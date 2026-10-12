@@ -1,7 +1,27 @@
-# Nanduni Senaratne – Portfolio
+# Nanduni Senaratne – Personal Portfolio
 
 **BSc (Hons) Biotechnology**
 
-A personal portfolio website created using **HTML and CSS** to showcase my academic journey, skills, projects, activities, and interests.
-
 🌐 **Website:** [Visit My Portfolio](https://nanduni-sathsarani.github.io/)
+
+This repository contains my personal portfolio website, created as part of my academic work at the **Sri Lanka Institute of Information Technology (SLIIT)**.
+
+## About
+
+The website introduces my academic background, skills, projects, leadership experiences, activities, and personal values as a **Biotechnology undergraduate**.
+
+## Technologies Used
+
+- HTML5
+- CSS3
+
+## Sections
+
+- Home
+- About Me
+- Education & Qualifications
+- Skills & Strengths
+- Projects & Experiences
+- Leadership & Activities
+- Values & Outlook
+- Contact
