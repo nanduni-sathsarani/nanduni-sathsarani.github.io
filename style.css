@@ -283,10 +283,10 @@ section {
     gap: 40px;
 }
 
-/* Resized Profile Frame - Small Size */
+/* Resized Profile Frame - Fixed Full Face Visibility */
 .profile-frame {
     width: 100%;
-    max-width: 180px; /* Small Size Image Box */
+    max-width: 170px; /* Small, balanced size */
     margin: 0 auto;
     padding: 8px;
     background: var(--bg-subtle);
@@ -296,8 +296,8 @@ section {
 
 .profile-image {
     width: 100%;
-    aspect-ratio: 6 / 4;
-    object-fit: cover;
+    height: auto; /* Natural ratio prevents top/bottom cropping */
+    object-fit: contain;
     border-radius: 2px;
 }
 
@@ -307,6 +307,7 @@ section {
     color: var(--dark-green);
     font-size: 12px;
     font-weight: 700;
+    line-height: 1.3;
 }
 
 .about-content h3 {
@@ -388,7 +389,6 @@ section {
     color: var(--earth-sage);
 }
 
-/* Subheading */
 .education-card h3 {
     color: var(--dark-green);
     font-size: 18px;
@@ -452,7 +452,6 @@ section {
     border-radius: 4px;
 }
 
-/* Subheading */
 .skill-card h3 {
     margin-bottom: 8px;
     color: var(--dark-green);
@@ -460,7 +459,6 @@ section {
     font-weight: 700;
 }
 
-/* Normal Content */
 .skill-intro {
     margin-bottom: 14px;
     color: var(--text-muted);
@@ -515,7 +513,7 @@ section {
 .cv-green-box {
     margin-top: 30px;
     padding: 28px 32px;
-    background: var(--dark-green); /* Solid Green Box */
+    background: var(--dark-green);
     color: #ffffff;
     border-radius: 6px;
     display: flex;
